@@ -1,15 +1,12 @@
 package com.richard.inventorymanagement.user.entity;
 
 import com.richard.inventorymanagement.shared.domain.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.richard.inventorymanagement.shared.domain.UserRole;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.Instant;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,15 +16,13 @@ import java.time.Instant;
 @Table(name = "users")
 public class User extends BaseEntity {
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "password_hash")
+    @Column(name = "password_hash", nullable = false)
     private String password;
 
-    @Column(name = "role")
-    private String role;
-
-    @Column(name = "updated_at")
-    private Instant updatedAt;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private UserRole role = UserRole.USER;
 }

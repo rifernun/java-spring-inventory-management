@@ -1,15 +1,16 @@
 package com.richard.inventorymanagement.user.dto;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.richard.inventorymanagement.shared.domain.UserRole;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class UserDto {
+@NoArgsConstructor
+@Builder
+public class UserRequestDto {
     private String name;
     private String email;
     private String password;
+    private UserRole role;
 }
