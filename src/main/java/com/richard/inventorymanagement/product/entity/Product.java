@@ -25,4 +25,7 @@ public class Product extends BaseEntity {
 
     @Column(name = "min_quantity", nullable = false)
     private Integer minQuantity = 0;
+
+    @Column(name = "price", nullable = false)
+    private Double price;
 }

@@ -6,5 +6,8 @@ CREATE TABLE products (
     category_id UUID NOT NULL,
     current_quantity INTEGER NOT NULL DEFAULT 0,
     min_quantity INTEGER NOT NULL DEFAULT 0,
+    price NUMERIC(10, 2) NOT NULL CHECK (price >= 0),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE RESTRICT
 );
